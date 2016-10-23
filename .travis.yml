@@ -1,3 +1,5 @@
+sudo: required
+
 language: cpp
 
 compiler:
@@ -28,12 +30,9 @@ addons:
     - g++-4.8
     - gcc-4.8
     - libeigen3-dev 
-    - libpcl-all
-    - libgsl0-dev
-    - libgsl0ldbl
-    - libgsl0-dbg
-    - libpcl1
+   
 before_install:
+  - sudo apt-get install -y libpcl1 libgsl0-dbg libgsl0ldbl libgsl0-dev libpcl-all
   - env
   - export SRC_DIR="`pwd`"
   - if [ $CXX == "g++" ]; then export CXX="g++-4.8"  CC="gcc-4.8" BOOST_TOOLSET=gcc CCOMPILER="gcc-4.8" CXXCOMPILER="g++-4.8"; fi
