@@ -30,7 +30,9 @@ addons:
     - libeigen3-dev 
     - libpcl-all
     - libgsl0-dev
-    
+    - libgsl0ldbl
+    - libgsl0-dbg
+    - libpcl1
 before_install:
   - env
   - export SRC_DIR="`pwd`"
