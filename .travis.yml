@@ -51,10 +51,10 @@ before_script:
   - 'echo "using clang : : ccache $CXX : <cflags>-std=c11 <cxxflags>-std=c++11 ;" >> ~/user-config.jam'
   - cd "$BOOST_ROOT"; ./b2 toolset="$BOOST_TOOLSET" threading=multi --prefix="$BOOST_ROOT" -d0 install
   - cd $SRC_DIR; wget ftp://ftp.gnu.org/gnu/gsl/gsl-1.7.tar.gz
-  - tar -zxvf gsl-1.7.tar.gz; cd cd gsl-1.7;
+  - tar -zxvf gsl-1.7.tar.gz; cd gsl-1.7;
   - mkdir $SRC_DIR/gsl
   - ./configure --prefix=$SRC_DIR/gsl
-  - make, make check; make install
+  - make; make check; make install
   - git clone git://github.com/DGtal-team/DGtal.git
   - cd DGtal
   - cmake . $DGTALTYPE  -DCMAKE_CXX_COMPILER=$CXXCOMPILER -DCMAKE_C_COMPILER=$CCOMPILER -DBOOST_ROOT=$BOOST_ROOT
