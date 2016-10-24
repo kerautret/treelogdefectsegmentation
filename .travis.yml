@@ -56,7 +56,7 @@ before_script:
   - ./configure --prefix=$SRC_DIR/gsl
   - make; make check; make install
   - git clone git://github.com/DGtal-team/DGtal.git
-  - cd DGtal; midir build; cd build;
+  - cd DGtal; mkdir build; cd build;
   - cmake .. $DGTALTYPE  -DCMAKE_CXX_COMPILER=$CXXCOMPILER -DCMAKE_C_COMPILER=$CCOMPILER -DBOOST_ROOT=$BOOST_ROOT
   - make 
   - cd ../..
