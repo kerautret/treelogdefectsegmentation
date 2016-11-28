@@ -31,7 +31,7 @@ addons:
     - libgsl0ldbl
     - gsl-bin
     - libgsl0-dev
-    - libpcl-all
+
 
 before_install:
   - env
@@ -43,7 +43,7 @@ before_install:
   - export BOOST_DOWNLOAD_URL="http://sourceforge.net/projects/boost/files/boost/1.58.0/boost_1_58_0.tar.bz2/download"
   - export BOOST_ROOT="$TRAVIS_BUILD_DIR/../boost"
   - export CMAKE_MODULE_PATH="$BOOST_ROOT"
- # - wget ftp://ftp.gnu.org/gnu/gsl/gsl-1.7.tar.gz --output-document="$SRC_DIR/gsl.tar.gz"
+ # - wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz --output-document="$SRC_DIR/gsl.tar.gz"
  # - mkdir "$SRC_DIR/gsl";
  # - tar xvzf "$SRC_DIR/gsl.tar.gz" --strip-components=1 -C "$SRC_DIR/gsl"
  # - cd "$SRC_DIR/gsl"; ./autogen.sh ; ./configure --enable-maintainer-mode; make
