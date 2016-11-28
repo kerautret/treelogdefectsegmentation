@@ -32,7 +32,7 @@ addons:
     - gsl-bin
     - libgsl0-dev
     - libpcl-all
-    
+
 before_install:
   - env
   - export SRC_DIR="`pwd`"
@@ -43,7 +43,7 @@ before_install:
   - export BOOST_DOWNLOAD_URL="http://sourceforge.net/projects/boost/files/boost/1.58.0/boost_1_58_0.tar.bz2/download"
   - export BOOST_ROOT="$TRAVIS_BUILD_DIR/../boost"
   - export CMAKE_MODULE_PATH="$BOOST_ROOT"
-  - wget ftp://ftp.gnu.org/gnu/gsl/gsl-1.7.tar.gz --output-document="$SRC_DIR/gsl.tar.gz"
+ # - wget ftp://ftp.gnu.org/gnu/gsl/gsl-1.7.tar.gz --output-document="$SRC_DIR/gsl.tar.gz"
  # - mkdir "$SRC_DIR/gsl";
  # - tar xvzf "$SRC_DIR/gsl.tar.gz" --strip-components=1 -C "$SRC_DIR/gsl"
  # - cd "$SRC_DIR/gsl"; ./autogen.sh ; ./configure --enable-maintainer-mode; make
@@ -57,6 +57,13 @@ before_install:
   #- mkdir $SRC_DIR/gsl
   #- ./configure --prefix=$SRC_DIR/gsl
   #- make; make check; make install
+  - cd $SRC_DIR   
+  -  cd $SRC_DIR; wget https://aur.archlinux.org/packages/pc/pcl/pcl.tar.gz --output-document="$SRC_DIR/pcl.tar.gz
+  - mkdir "$SRC_DIR/pcl";
+  - tar xvzf "$SRC_DIR/pcl.tar.gz" --strip-components=1 -C "$SRC_DIR/pcl"
+  - cd "$SRC_DIR/pcl";
+  - makepkg  
+  
   - cd $SRC_DIR
   - git clone git://github.com/DGtal-team/DGtal.git
   - cd DGtal; mkdir build; cd build;
@@ -71,5 +78,5 @@ before_script:
 script:
   - cd $TRAVIS_BUILD_DIR;
   - mkdir build; cd build;
-  - cmake .. -DCMAKE_BUILD_TYPE=Debug -DDGtal_DIR=$SRC_DIR/DGtal/build/ -DCMAKE_CXX_COMPILER=$CXXCOMPILER -DCMAKE_C_COMPILER=$CCOMPILER -DBOOST_ROOT=$BOOST_ROOT  
+  - cmake .. -DCMAKE_BUILD_TYPE=Debug -DDGtal_DIR=$SRC_DIR/DGtal/build/ -DCMAKE_CXX_COMPILER=$CXXCOMPILER -DCMAKE_C_COMPILER=$CCOMPILER -DBOOST_ROOT=$BOOST_ROOT  -DPCL_DIR="$SRC_DIR/pcl"
   - make
