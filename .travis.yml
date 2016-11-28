@@ -31,6 +31,7 @@ addons:
     - libgsl0ldbl
     - gsl-bin
     - libgsl0-dev
+    - libpcl-all
     
 before_install:
   - env
