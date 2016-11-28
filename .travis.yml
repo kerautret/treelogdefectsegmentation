@@ -61,7 +61,7 @@ before_install:
   - mkdir "$SRC_DIR/pcl";
   - tar xvzf "$SRC_DIR/pcl.tar.gz" --strip-components=1 -C "$SRC_DIR/pcl"
   - cd "$SRC_DIR/pcl";
-  - makepkg  
+  - mkdir build; cmake ..; make 
   
   - cd $SRC_DIR
   - git clone git://github.com/DGtal-team/DGtal.git
