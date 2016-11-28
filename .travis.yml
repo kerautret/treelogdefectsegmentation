@@ -29,7 +29,9 @@ addons:
     - gcc-4.8
     - libeigen3-dev 
     - libgsl0ldbl
-   
+    - gsl-bin
+    - libgsl0-dev
+    
 before_install:
   - env
   - export SRC_DIR="`pwd`"
