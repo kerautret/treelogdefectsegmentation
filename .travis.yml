@@ -31,8 +31,9 @@ addons:
     - libgsl0ldbl
     - gsl-bin
     - libgsl0-dev
-
-
+    - libflann-dev
+    - libflann1.9
+    
 before_install:
   - env
   - export SRC_DIR="`pwd`"
