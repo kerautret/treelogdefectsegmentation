@@ -62,7 +62,8 @@ before_install:
   - mkdir "$SRC_DIR/pcl";
   - tar xvzf "$SRC_DIR/pcl.tar.gz" --strip-components=1 -C "$SRC_DIR/pcl"
   - cd "$SRC_DIR/pcl";
-  - ls $BOOST_ROOT/;
+  - ls $BOOST_ROOT/libs;
+  - ls $BOOST_ROOT/boost;      
   - mkdir build; cd build; cmake .. -DBOOST_ROOT=$BOOST_ROOT -DBOOST_LIBRARYDIR=$BOOST_ROOT/build/lib64-msvc-13.0 ; make; 
   
   - cd $SRC_DIR
