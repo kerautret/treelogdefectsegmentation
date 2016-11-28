@@ -43,9 +43,9 @@ before_install:
   - export BOOST_ROOT="$TRAVIS_BUILD_DIR/../boost"
   - export CMAKE_MODULE_PATH="$BOOST_ROOT"
   - wget ftp://ftp.gnu.org/gnu/gsl/gsl-1.7.tar.gz --output-document="$SRC_DIR/gsl.tar.gz"
-  - mkdir "$SRC_DIR/gsl";
-  - tar xvzf "$SRC_DIR/gsl.tar.gz" --strip-components=1 -C "$SRC_DIR/gsl"
-  - cd "$SRC_DIR/gsl"; ./autogen.sh ; ./configure --enable-maintainer-mode; make
+ # - mkdir "$SRC_DIR/gsl";
+ # - tar xvzf "$SRC_DIR/gsl.tar.gz" --strip-components=1 -C "$SRC_DIR/gsl"
+ # - cd "$SRC_DIR/gsl"; ./autogen.sh ; ./configure --enable-maintainer-mode; make
   - cd "$SRC_DIR";
   - if [ ! -f "$DOWNLOAD_ROOT/boost.tar.bz2" ]; then wget --no-verbose --output-document="$DOWNLOAD_ROOT/boost.tar.bz2" "$BOOST_DOWNLOAD_URL"; fi
   - if [ ! -d "$BOOST_ROOT" ]; then mkdir -p "$BOOST_ROOT" && tar jxf "$DOWNLOAD_ROOT/boost.tar.bz2" --strip-components=1 -C "$BOOST_ROOT"; fi
@@ -70,5 +70,5 @@ before_script:
 script:
   - cd $TRAVIS_BUILD_DIR;
   - mkdir build; cd build;
-  - cmake .. -DCMAKE_BUILD_TYPE=Debug -DDGtal_DIR=$SRC_DIR/DGtal/build/ -DGSL_ROOT_DIR=$SRC_DIR/gsl -DCMAKE_CXX_COMPILER=$CXXCOMPILER -DCMAKE_C_COMPILER=$CCOMPILER -DBOOST_ROOT=$BOOST_ROOT  -DGSL_LIBRARY=$SRC_DIR/gsl/lib/libgsl.dylib  -DGSL_LIBRARY=$SRC_DIR/gsl/lib -DGSL_INCLUDE_DIR=$SRC_DIR/gsl/include -DGSL_ROOT_DIR=$SRC_DIR/gsl
+  - cmake .. -DCMAKE_BUILD_TYPE=Debug -DDGtal_DIR=$SRC_DIR/DGtal/build/ -DCMAKE_CXX_COMPILER=$CXXCOMPILER -DCMAKE_C_COMPILER=$CCOMPILER -DBOOST_ROOT=$BOOST_ROOT  
   - make
