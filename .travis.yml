@@ -51,7 +51,7 @@ before_install:
   - cd "$SRC_DIR";
   - if [ ! -f "$DOWNLOAD_ROOT/boost.tar.bz2" ]; then wget --no-verbose --output-document="$DOWNLOAD_ROOT/boost.tar.bz2" "$BOOST_DOWNLOAD_URL"; fi
   - if [ ! -d "$BOOST_ROOT" ]; then mkdir -p "$BOOST_ROOT" && tar jxf "$DOWNLOAD_ROOT/boost.tar.bz2" --strip-components=1 -C "$BOOST_ROOT"; fi
-  - if [ ! -f "$BOOST_ROOT/b2" ]; then cd "$BOOST_ROOT"; ./bootstrap.sh --with-toolset="$BOOST_TOOLSET" --with-libraries=program_options; b2; fi
+  - if [ ! -f "$BOOST_ROOT/b2" ]; then cd "$BOOST_ROOT"; ./bootstrap.sh --with-toolset="$BOOST_TOOLSET" --with-libraries=program_options; ./b2; fi
   # Manual install of gsl: 
   #- cd $SRC_DIR; wget ftp://ftp.gnu.org/gnu/gsl/gsl-1.7.tar.gz
   #- tar -zxvf gsl-1.7.tar.gz; cd gsl-1.7;
